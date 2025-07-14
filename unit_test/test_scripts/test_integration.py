@@ -2,7 +2,6 @@ from PIL import Image
 import sys
 import os
 import pytest
-import torch
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
 from src.tools.image_editor import ImageEditor
@@ -42,30 +41,25 @@ def test_image():
     return str(img_path)
 
 def test_mixed_operations(test_image, capsys):
-    # Use context manager for resource handling
-    with ImageEditor(test_config, segmentation_config, inpainting_config) as editor:
-        # Process request
-        output_path = "D:/AI_Learning/AI_Agents/images/output.jpg"
-        result = editor.edit_image(
-            test_image, 
-            "Greyscale then detect edges by canny method with low_threshold=0.2, high_threshold=0.8, "
-            "resize to 2000*2000, and show detailed processing steps"
-        )
-        
-        # Save result and capture logs
-        result.save(output_path)
-        
-        # Get captured output
-        captured = capsys.readouterr()
-        print("\n=== CAPTURED LOGS ===")
-        print(captured.out)
-        
-        # Print paths for manual verification
-        print(f"\nInput image: {test_image}")
-        print(f"Output image: {output_path}")
-
-    # Force cleanup
-    import gc
-    gc.collect()
-    if torch.cuda.is_available():
-        torch.cuda.empty_cache()
+    # Initialize editor with test config
+    editor = ImageEditor(test_config, segmentation_config, inpainting_config)
+    
+    # Process request with explicit verbose instruction
+    output_path = "D:/AI_Learning/AI_Agents/images/output.jpg"
+    result = editor.edit_image(
+        test_image, 
+        "Greyscale then detect edges by canny method with low_threshold=0.2, high_threshold=0.8, "
+        "resize to 2000*2000, and show detailed processing steps"
+    )
+    
+    # Save result and capture logs
+    result.save(output_path)
+    
+    # Get captured output
+    captured = capsys.readouterr()
+    print("\n=== CAPTURED LOGS ===")
+    print(captured.out)
+    
+    # Print paths for manual verification
+    print(f"\nInput image: {test_image}")
+    print(f"Output image: {output_path}")
