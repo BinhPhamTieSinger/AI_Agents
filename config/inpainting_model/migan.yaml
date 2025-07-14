@@ -1,6 +1,5 @@
 mi_gan:
   model_path: "models/migan_512_places2.pt"
-  script_path: "../MI-GAN/scripts/demo.py"
   parameters:
     expand_pixels: 50
     dilation_iterations: 2

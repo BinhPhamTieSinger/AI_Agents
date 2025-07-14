@@ -101,7 +101,7 @@ class AdvancedOperations:
 
         # Run MI-GAN
         subprocess.run([
-            "python", "-m", self.mi_gan_config['script_path'],
+            "python", "-m", "src.scripts.demo",
             "--model-name", "migan-512",
             "--model-path", self.mi_gan_config['model_path'],
             "--images-dir", str(self.temp_dirs['input']),
