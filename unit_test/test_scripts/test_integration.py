@@ -23,7 +23,7 @@ print(test_config)
 @pytest.fixture
 def test_image():
     # Create a test image with a mock object
-    img_path = "images/Test_3.jpg"
+    img_path = "images/Test_2.jpg"
     # Check if the file exists
     if os.path.exists(img_path):
         print(f"Test image already exists at {img_path}. Using existing file.")
