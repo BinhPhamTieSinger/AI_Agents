@@ -66,6 +66,21 @@ class BasicToolAgent:
                 }
             }
         }
+        self._cleaned_up = False
+    
+    def __del__(self):
+        if not self._cleaned_up:
+            self.cleanup()
+    
+    def cleanup(self):
+        if self._cleaned_up:
+            return
+        
+        # Cleanup operations
+        self.operations.cleanup()
+        
+        # Mark as cleaned up
+        self._cleaned_up = True
 
     def get_tools(self):
         return self.tools

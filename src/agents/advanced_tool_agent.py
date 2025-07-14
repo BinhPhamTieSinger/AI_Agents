@@ -1,45 +1,17 @@
 from src.tools.advanced_operations import AdvancedOperations
+import torch
 
 class AdvancedToolAgent:
     def __init__(self, config_segmentation, config_inpainting):
         self.operations = AdvancedOperations(config_segmentation, config_inpainting)
         self.tools = {
-            # 'delete_object': {
-            #     'name': "delete_object",
-            #     'func': self.operations.delete_object,
-            #     'type': 'advanced',
-            #     'description': 'Remove objects from image',
-            #     'parameters': {
-            #         'object_name': {'type': 'str', 'required': True}
-            #     }
-            # },
-            # 'add_object': {
-            #     'name': "add_object",
-            #     'func': self.operations.add_object,
-            #     'type': 'advanced',
-            #     'description': 'Add new objects to the image',
-            #     'parameters': {
-            #         'object_description': {'type': 'str', 'required': True},
-            #         'position_hint': {'type': 'str', 'required': False}
-            #     }
-            # },
-            # 'replace_object': {
-            #     'name': "replace_object",
-            #     'func': self.operations.replace_object,
-            #     'type': 'advanced',
-            #     'description': 'Replace existing objects with new ones',
-            #     'parameters': {
-            #         'old_object_name': {'type': 'str', 'required': True},
-            #         'new_object_description': {'type': 'str', 'required': True}
-            #     }
-            # },
-            'edit_image': {
-                'name': "edit_image",
-                'func': self.operations.edit_image,
+            'delete_object': {
+                'name': "delete_object",
+                'func': self.operations.delete_object,
                 'type': 'advanced',
-                'description': 'Edit image based on instruction',
+                'description': 'Remove objects using MI-GAN inpainting',
                 'parameters': {
-                    'instruction': {'type': 'str', 'required': True}
+                    'object_name': {'type': 'str', 'required': True}
                 }
             }
         }

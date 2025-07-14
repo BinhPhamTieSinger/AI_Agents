@@ -1,6 +1,7 @@
 from PIL import Image, ImageFilter
 import cv2
 import numpy as np
+import torch
 
 class BasicOperations:
     def __init__(self, config=None, default_size=(800, 600), default_blur_radius=2, edge_detection_defaults=None):
@@ -18,6 +19,7 @@ class BasicOperations:
             'low_threshold': 50,
             'high_threshold': 200
         }
+        self._cleaned_up = False
 
     def resize_image(self, image, size=None):
         """
@@ -72,3 +74,35 @@ class BasicOperations:
         """
         radius = radius or self.default_blur_radius
         return image.filter(ImageFilter.GaussianBlur(radius))
+    
+    def cleanup(self):
+        """Cleanup resources if needed"""
+        if self._cleaned_up:
+            return
+        
+        # Placeholder for any cleanup logic, e.g., clearing caches
+        self._cleaned_up = True
+    
+        # Clear CUDA cache if using PyTorch
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+        
+        # Clear temporary files if any
+        for dir in self.temp_dirs.values():
+            for file in dir.glob("*"):
+                try:
+                    file.unlink()
+                except Exception as e:
+                    print(f"Error deleting file {file}: {e}")
+
+        self._cleaned_up = True
+
+    def __del__(self):
+        if not self._cleaned_up:
+            self.cleanup()
+    
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.cleanup()
