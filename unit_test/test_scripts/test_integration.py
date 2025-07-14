@@ -48,8 +48,7 @@ def test_mixed_operations(test_image, capsys):
     output_path = "images/output.jpg"
     result = editor.edit_image(
         test_image, 
-        "Greyscale then detect edges by canny method with low_threshold=0.2, high_threshold=0.8, "
-        "resize to 2000*2000, and show detailed processing steps"
+        "Remove the iphone"
     )
     
     # Save result and capture logs
