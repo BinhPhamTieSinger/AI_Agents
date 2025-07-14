@@ -86,14 +86,6 @@ class BasicOperations:
         # Clear CUDA cache if using PyTorch
         if torch.cuda.is_available():
             torch.cuda.empty_cache()
-        
-        # Clear temporary files if any
-        for dir in self.temp_dirs.values():
-            for file in dir.glob("*"):
-                try:
-                    file.unlink()
-                except Exception as e:
-                    print(f"Error deleting file {file}: {e}")
 
         self._cleaned_up = True
 
