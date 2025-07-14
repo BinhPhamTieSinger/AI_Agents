@@ -4,7 +4,7 @@ owlv2:
 
 sam:
   model_type: "vit_h"
-  checkpoint_path: "models/sam_vit_h_4b8939.pth"
+  checkpoint_path: "https://drive.google.com/file/d/1-pOLBMTX8LI2go8eYC_X-9OC_YDKKjoB/view?usp=drive_link"
 
 mask_processing:
   expand_pixels: 10
