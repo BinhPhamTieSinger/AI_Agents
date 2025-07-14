@@ -1,5 +1,5 @@
 mi_gan:
-  model_path: "/kaggle/input/mi-gan-model/migan_512_places2.pt"
+  model_path: "models/migan_512_places2.pt"
   parameters:
     expand_pixels: 50
     dilation_iterations: 2
