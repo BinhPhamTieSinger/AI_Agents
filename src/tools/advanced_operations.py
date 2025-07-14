@@ -92,16 +92,16 @@ class AdvancedOperations:
 
         # Prepare temporary files
         base_name = hash(image.tobytes())
-        input_path = self.temp_dirs['input'] / f"{base_name}.png"
-        mask_path = self.temp_dirs['mask'] / f"{base_name}.png"
-        output_path = self.temp_dirs['output'] / f"{base_name}.png"
+        input_path = self.temp_dirs['input'] / f"test.png"
+        mask_path = self.temp_dirs['mask'] / f"test.png"
+        output_path = self.temp_dirs['output'] / f"test.png"
 
         image.save(input_path)
         Image.fromarray(expanded_mask).save(mask_path)
 
         # Run MI-GAN
         subprocess.run([
-            "python", "-m", "scripts.demo",
+            "python", "-m", self.mi_gan_config['script_path'],
             "--model-name", "migan-512",
             "--model-path", self.mi_gan_config['model_path'],
             "--images-dir", str(self.temp_dirs['input']),

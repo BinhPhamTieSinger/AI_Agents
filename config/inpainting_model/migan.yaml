@@ -1,10 +1,11 @@
 mi_gan:
   model_path: "models/migan_512_places2.pt"
+  script_path: "../MI-GAN/scripts/demo.py"
   parameters:
     expand_pixels: 50
     dilation_iterations: 2
     detection_threshold: 0.2
   temp_dirs:
-    input: "/kaggle/working/MI-GAN/test/images"
-    mask: "/kaggle/working/MI-GAN/test/masks"
-    output: "/kaggle/working/MI-GAN/test/results"
+    input: "test_image/images"
+    mask: "test_image/masks"
+    output: "test_image/results"
