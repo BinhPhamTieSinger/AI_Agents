@@ -1,0 +1,14 @@
+owlv2:
+  model: "google/owlv2-base-patch16-ensemble"
+  threshold: 0.15
+
+sam:
+  model_type: "vit_h"
+  checkpoint_path: "models/sam_vit_h_4b8939.pth"
+
+mask_processing:
+  expand_pixels: 10
+  blur_radius: 25
+  mask_threshold: 127
+
+device: "cuda"  # or "cpu"

@@ -1,0 +1,41 @@
+📂 ai-image-editing-agents/
+├── 📂 config/
+│   ├── 📄 base_config.yaml
+│   ├── 📄 task_classifier.yaml
+│   ├── 📄 basic_tools.yaml
+│   ├── 📄 segmentation_model.yaml
+│   ├── 📄 inpainting_model.yaml
+│   └── 📄 style_transfer.yaml
+├── 📂 images/
+│   ├── 📄 Test.jpg
+│   ├── 📄 Test_2.jpg
+│   └── 📄 Test_3.jpg
+├── 📂 models/
+│   └── 📄sam_vit_h_4b8939.pth
+├── 📂 src/
+│   ├── 📂 agents/
+│   │   ├── 📄 task_classifier_agent.py
+│   │   ├── 📄 basic_tool_agent.py
+│   │   └── 📄 advanced_tool_agent.py
+│   ├── 📂 tools/
+│   │   ├── 📄 basic_operations.py
+│   │   ├── 📄 advanced_operations.py
+│   │   └── 📄 image_editor.py
+│   ├── 📂 utils/
+│   │   ├── 📄 image_utils.py
+│   │   ├── 📄 model_utils.py
+│   │   └── 📄 validation.py
+│   ├── 📂 planners/
+│   │   └── 📄 task_planner.py
+│   ├── 📂 memory/
+│   │   └── 📄 memory_manager.py
+│   └── 📄 __init__.py
+├── 📂 unit_test/
+│   ├── 📂 test_cases/
+│   │   ├── 📂 prompts/
+│   │   ├── 📂 test_images/
+│   │   └── 📂 expected_outputs/
+│   └── 📂 test_scripts/
+│       └── 📄 test_integration.py
+├── 📄 folder_structure.txt
+└── 📄 README.md

@@ -1,0 +1,17 @@
+sdxl:
+  model: "stabilityai/stable-diffusion-xl-refiner-1.0"
+  torch_dtype: "float16"
+  variant: "fp16"
+  use_safetensors: true
+
+inpainting_params:
+  num_inference_steps: 40
+  guidance_scale: 8
+  strength: 0.95
+  denoising_start: 0.25
+  negative_prompt: "blurry, low quality, artifacts, distortion"
+
+replacement_params:
+  blend_strength: 0.85
+  context_preservation: 0.9
+  negative_prompt: "floating object, unrealistic placement, bad proportions"

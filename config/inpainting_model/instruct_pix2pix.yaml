@@ -1,0 +1,12 @@
+instruct_pix2pix:
+  model: "timbrooks/instruct-pix2pix"
+  torch_dtype: "float16"
+  parameters:
+    image_guidance_scale: 1.5
+    guidance_scale: 7.0
+    num_inference_steps: 20
+  negative_prompt: "low quality, blurry, unrealistic"
+  edit_instructions:
+    delete_template: "Remove the {object} from the image"
+    add_template: "Add a {object} to the image"
+    replace_template: "Replace the {old_object} with {new_object}"

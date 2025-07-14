@@ -1,0 +1,29 @@
+# config/base_config.yaml
+api:
+  gemini_key: "AIzaSyA387sV1zRm5aLfUDHpVjmjBsy1LjX3pRQ"  # Replace with actual API key
+
+basic_tools:
+  resize:
+    default_size: [512, 512]  # Width, height in pixels
+    maintain_aspect: false     # Whether to preserve aspect ratio
+  
+  grayscale:
+    mode: "L"                 # PIL conversion mode
+  
+  edge_detection:
+    default_method: "canny"   # canny|sobel
+    canny_thresholds: [50, 200]
+    sobel_kernel: 5
+  
+  blur:
+    default_radius: 2         # Gaussian blur radius
+    max_radius: 10
+  
+  color_adjustment:
+    default_factor: 1.2       # Enhancement multiplier
+    max_factor: 3.0
+
+logging:
+  level: "INFO"               # DEBUG|INFO|WARNING|ERROR
+  save_history: true          # Whether to keep processing history
+  history_path: "./edit_history"
