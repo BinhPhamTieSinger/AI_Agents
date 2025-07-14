@@ -23,7 +23,7 @@ print(test_config)
 @pytest.fixture
 def test_image():
     # Create a test image with a mock object
-    img_path = "D:/AI_Learning/AI_Agents/images/Test_3.jpg"
+    img_path = "images/Test_3.jpg"
     # Check if the file exists
     if os.path.exists(img_path):
         print(f"Test image already exists at {img_path}. Using existing file.")
@@ -45,7 +45,7 @@ def test_mixed_operations(test_image, capsys):
     editor = ImageEditor(test_config, segmentation_config, inpainting_config)
     
     # Process request with explicit verbose instruction
-    output_path = "D:/AI_Learning/AI_Agents/images/output.jpg"
+    output_path = "images/output.jpg"
     result = editor.edit_image(
         test_image, 
         "Greyscale then detect edges by canny method with low_threshold=0.2, high_threshold=0.8, "
