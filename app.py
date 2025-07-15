@@ -1,7 +1,7 @@
 # app.py
 import streamlit as st
 from PIL import Image
-from src.image_editing.image_editor import ImageEditor
+from src.tools.image_editor import ImageEditor
 import yaml
 import time
 import traceback
@@ -9,9 +9,9 @@ import traceback
 # Load configurations
 with open("config/base_config.yaml") as f:
     base_config = yaml.safe_load(f)
-with open("config/segmentation_model.yaml") as f:
+with open("config/segmentation_model/base_segmentation_model.yaml") as f:
     seg_config = yaml.safe_load(f)
-with open("config/inpainting_model.yaml") as f:
+with open("config/inpainting_model/migan.yaml") as f:
     inpaint_config = yaml.safe_load(f)
 
 # Custom CSS styling
@@ -49,8 +49,9 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 def process_image(image, prompt):
-    with ImageEditor(base_config, seg_config, inpaint_config) as editor:
-        return editor.edit_image(image, prompt)
+    editor = ImageEditor(base_config, seg_config, inpaint_config)
+    result = editor.edit_image(image, prompt)
+    return result
 
 # Main app layout
 st.title("🖼 AI Image Editor")
@@ -81,14 +82,14 @@ if uploaded_file and process_btn and prompt:
         
         # Load image
         status.markdown("### 🔄 Loading image...")
-        original_image = Image.open(uploaded_file)
+        # original_image = Image.open(uploaded_file)
         progress_bar.progress(10)
         
         # Process image
         status.markdown("### 🧠 Processing your request...")
         with st.spinner("Applying AI magic..."):
             start_time = time.time()
-            result = process_image(original_image, prompt)
+            result = process_image(uploaded_file, prompt)
             progress_bar.progress(90)
             
         # Show results
@@ -100,7 +101,7 @@ if uploaded_file and process_btn and prompt:
         # Display comparison
         col1, col2 = st.columns(2)
         with col1:
-            st.image(original_image, caption="Original Image", use_container_width=True)
+            st.image(Image.open(uploaded_file), caption="Original Image", use_container_width=True)
         with col2:
             st.image(result, caption="Edited Result", use_container_width=True)
             
