@@ -109,7 +109,7 @@ if uploaded_file and process_btn and prompt:
         st.download_button(
             label="📥 Download Result",
             data=result.tobytes(),
-            file_name="edited_image.jpg",
+            file_name="images/edited_image.jpg",
             mime="image/jpeg",
             use_container_width=True
         )
