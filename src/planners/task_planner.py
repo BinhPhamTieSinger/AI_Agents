@@ -45,6 +45,7 @@ The response should be a JSON object with the following structure:
 }}
 
 AVAILABLE TOOLS: {self.tools} and please if the user give extra parameters that are not mentioned in the tool description, please ignore them and do not include them in the parameters.
+There's are notes in some tools that you should follow, like for delete_object tool, the prompt has to be lowercase and add a colon after the prompt.
 
 EXAMPLE 1:
 Request: "Remove the laptop and resize to 800x600, detect edges by canny method with low_threshold=0.2, high_threshold=0.8"
