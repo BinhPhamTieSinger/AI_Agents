@@ -54,7 +54,7 @@ Response:
   "steps": [
     {{
       "tool": "delete_object",
-      "parameters": {{"object_name": "laptop"}},
+      "parameters": {{"object_name": "a laptop."}},
       "log_message": "Removing laptop"
     }},
     {{
@@ -68,19 +68,6 @@ Response:
         "low_threshold": 0.2,
         "high_threshold": 0.8
       }}
-    }}
-  ]
-}}
-
-EXAMPLE 2:
-Request: "Delete smartphone from image"
-Response:
-{{
-  "steps": [
-    {{
-      "tool": "edit_image",
-      "parameters": {{"instruction": "Delete smartphone from image"}},
-      "log_message": "Removing smartphone"
     }}
   ]
 }}
