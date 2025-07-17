@@ -11,10 +11,13 @@ import yaml
 with open("config/base_config.yaml") as f:
     test_config = yaml.safe_load(f)
 
-with open("config/segmentation_model/base_segmentation_model.yaml") as f:
+with open("config/detection_model/grounding_dino.yaml") as f:
+    detection_config = yaml.safe_load(f)
+
+with open("config/segmentation_model/sam.yaml") as f:
     segmentation_config = yaml.safe_load(f)
 
-with open("config/inpainting_model/migan.yaml") as f:
+with open("config/inpainting_model/bria.yaml") as f:
     inpainting_config = yaml.safe_load(f)
 
 print("Test configuration loaded:")
@@ -42,7 +45,7 @@ def test_image():
 
 def test_mixed_operations(test_image, capsys):
     # Initialize editor with test config
-    editor = ImageEditor(test_config, segmentation_config, inpainting_config)
+    editor = ImageEditor(test_config, detection_config, segmentation_config, inpainting_config)
     
     # Process request with explicit verbose instruction
     output_path = "images/output.jpg"

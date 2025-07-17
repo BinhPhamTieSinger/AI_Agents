@@ -1,0 +1,12 @@
+grounding_dino:
+  model: "IDEA-Research/grounding-dino-base"
+  box_threshold: 0.25
+  text_threshold: 0.25
+  expansion_rate: 0.03  # 3% expansion
+
+sam:
+  model_type: "vit_h"
+  checkpoint_path: "models/sam/sam_vit_h_4b8939.pth"
+
+mask_processing:
+  dilation_proportion: 0.015

@@ -1,3 +1,26 @@
+import gdown
+import torch
+from pathlib import Path
+
+# Download models from Google Drive
+def download_models():
+    model_dir = Path("models")
+    model_dir.mkdir(exist_ok=True)
+    
+    # Example Google Drive file IDs
+    MODEL_URLS = {
+        "migan_512_places2.pt": "https://drive.google.com/uc?id=1-pOLBMTX8LI2go8eYC_X-9OC_YDKKjoB",
+        "sam_vit_h_4b8939.pth": "https://drive.google.com/uc?id=1t1U-COZnWt4iBQIw9xh7h2XH6KMZsfAh"
+    }
+    
+    for name, url in MODEL_URLS.items():
+        output = model_dir/name
+        if not output.exists():
+            gdown.download(url, str(output), quiet=False)
+
+# Call this at startup
+download_models()
+
 # app.py
 import streamlit as st
 from PIL import Image

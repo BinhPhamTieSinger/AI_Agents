@@ -5,12 +5,12 @@ from src.planners.task_planner import Planner
 from PIL import Image
 
 class ImageEditor:
-    def __init__(self, config, config_segmentation, config_inpainting):
+    def __init__(self, config, config_detection, config_segmentation, config_inpainting):
         self.config = config
 
         # Initialize agents
         self.basic_agent = BasicToolAgent()
-        self.advanced_agent = AdvancedToolAgent(config_segmentation, config_inpainting)
+        self.advanced_agent = AdvancedToolAgent(config_detection, config_segmentation, config_inpainting)
         
         # Collect all available tools
         all_tools = {}

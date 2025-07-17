@@ -1,0 +1,3 @@
+owlv2:
+  model: "google/owlv2-base-patch16-ensemble"
+  threshold: 0.15
