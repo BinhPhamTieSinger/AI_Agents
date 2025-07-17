@@ -13,7 +13,7 @@ class AdvancedToolAgent:
                 'parameters': {
                     'text_prompt': {
                         'type': 'str', 'required': True,
-                        'note': 'Prompt has to be lowercase and add a period after the prompt',
+                        'note': 'VERY important: text queries need to be lowercased + end with a dot, example: a cat. a remote control.',
                     }
                 },
             }

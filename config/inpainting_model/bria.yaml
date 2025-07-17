@@ -1,5 +1,5 @@
 bria_api:
   endpoint: "http://engine.prod.bria-api.com/v1/eraser"
-  api_token: "c736a298024248c29a77d7f8e853ca38"  # In production use env vars
+  api_token: "c736a298024248c29a77d7f8e853ca38"
   mask_type: "automatic"
   timeout: 30
