@@ -6,5 +6,6 @@ mask_processing:
   expand_pixels: 10
   blur_radius: 25
   mask_threshold: 127
+  dilation_proportion: 0.015
 
 device: "cuda"  # or "cpu"

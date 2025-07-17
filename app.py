@@ -31,11 +31,16 @@ import traceback
 
 # Load configurations
 with open("config/base_config.yaml") as f:
-    base_config = yaml.safe_load(f)
-with open("config/segmentation_model/base_segmentation_model.yaml") as f:
-    seg_config = yaml.safe_load(f)
-with open("config/inpainting_model/migan.yaml") as f:
-    inpaint_config = yaml.safe_load(f)
+    test_config = yaml.safe_load(f)
+
+with open("config/detection_model/grounding_dino.yaml") as f:
+    detection_config = yaml.safe_load(f)
+
+with open("config/segmentation_model/sam.yaml") as f:
+    segmentation_config = yaml.safe_load(f)
+
+with open("config/inpainting_model/bria.yaml") as f:
+    inpainting_config = yaml.safe_load(f)
 
 # Custom CSS styling
 st.set_page_config(
@@ -72,7 +77,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 def process_image(image, prompt):
-    editor = ImageEditor(base_config, seg_config, inpaint_config)
+    editor = ImageEditor(test_config, detection_config, segmentation_config, inpainting_config)
     result = editor.edit_image(image, prompt)
     return result
 
