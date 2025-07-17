@@ -13,7 +13,7 @@ class AdvancedToolAgent:
                 'parameters': {
                     'text_prompt': {
                         'type': 'str', 'required': True,
-                        'note': 'Prompt has to be lowercase and add a colon after the prompt',
+                        'note': 'Prompt has to be lowercase and add a period after the prompt',
                     }
                 },
             }
